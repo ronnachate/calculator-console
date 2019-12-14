@@ -16,7 +16,7 @@ namespace Calculator.ConsoleAppTest.Model.DiscountRule
         [Fact]
         public void ValidWithMinimumAmountTest()
         {
-            Assert.True(_rule.IsValid(1, "Test", 2000 ));
+            Assert.True(_rule.IsValid(1, "Test", MINIMUM_AMOUNT ));
         }
         [Fact]
         public void InValidTest()
