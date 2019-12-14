@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Calculator.Console
+namespace Calculator.ConsoleApp
 {
     class Program
     {
