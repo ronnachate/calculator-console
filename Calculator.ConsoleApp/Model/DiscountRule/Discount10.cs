@@ -4,9 +4,14 @@
     {
         private readonly string VALID_COUPON_CODE = "DIS10";
         private readonly decimal MINIMUM_AMOUNT = 2000;
-        public decimal GetNetPrice(string couponCode, decimal amount)
+        private readonly decimal DISCOUNT_PERCENTAGE = 10;
+        public decimal GetNetPrice(int customerCount, string couponCode, decimal amount)
         {
-            return 0;
+            if( couponCode == VALID_COUPON_CODE || amount >= MINIMUM_AMOUNT )
+            {
+                return amount - ( (amount/100) * DISCOUNT_PERCENTAGE );
+            }
+            return amount;
         }
         public bool IsValid(int customerCount, string couponCode, decimal amount)
         {

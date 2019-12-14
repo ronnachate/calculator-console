@@ -23,5 +23,19 @@ namespace Calculator.ConsoleAppTest.Model.DiscountRule
         {
             Assert.False(_rule.IsValid(1, "Test", 1999 ));
         }
+        [Fact]
+        public void GetNetPriceReturnDiscountAmountTest()
+        {
+            var netPrice = _rule.GetNetPrice(1, VALID_COUPON_CODE, 1000);
+            Assert.Equal(900, netPrice);
+            netPrice = _rule.GetNetPrice(1, "Test", 2000);
+            Assert.Equal(1800, netPrice);
+        }
+        [Fact]
+        public void GetNetPriceReturnSameForInvalidInputAmountTest()
+        {
+            var netPrice = _rule.GetNetPrice(1, "Test", 1000);
+            Assert.Equal(1000, netPrice);
+        }
     }
 }
