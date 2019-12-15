@@ -7,7 +7,7 @@ namespace Calculator.ConsoleAppTest.Model.DiscountRule
     {
         private Come4Pay3 _rule = new Come4Pay3();
         private readonly string VALID_COUPON_CODE = "STARCARD";
-        private readonly int CUSTOMER_COUNT = 2;
+        private readonly int CUSTOMER_COUNT = 4;
         [Fact]
         public void ValidTest()
         {

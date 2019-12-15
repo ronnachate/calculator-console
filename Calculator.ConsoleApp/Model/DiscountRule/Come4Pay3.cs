@@ -3,7 +3,7 @@
     public class Come4Pay3 : BaseDiscount, IDiscountRule
     {
         private readonly string VALID_COUPON_CODE = "STARCARD";
-        private readonly int CUSTOMER_COUNT = 2;
+        private readonly int CUSTOMER_COUNT = 4;
         private readonly decimal DISCOUNT_PERCENTAGE = 25;
         public decimal GetNetPrice(int customerCount, string couponCode, decimal amount)
         {
