@@ -2,3 +2,5 @@ Calculator.ConsoleApp/bin
 Calculator.ConsoleApp/obj
 Calculator.ConsoleApp.Tests/bin
 Calculator.ConsoleApp.Tests/obj
+coverage-hits.txt
+coverage.json
