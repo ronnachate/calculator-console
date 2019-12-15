@@ -1,6 +1,6 @@
 ﻿namespace Calculator.ConsoleApp.Model.DiscountRule
 {
-    public class Discount30For2 : IDiscountRule
+    public class Discount30For2 : BaseDiscount, IDiscountRule
     {
         private readonly string VALID_COUPON_CODE = "STARCARD";
         private readonly int CUSTOMER_COUNT = 2;

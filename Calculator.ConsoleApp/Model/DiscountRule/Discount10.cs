@@ -1,6 +1,6 @@
 ﻿namespace Calculator.ConsoleApp.Model.DiscountRule
 {
-    public class Discount10 : IDiscountRule
+    public class Discount10 : BaseDiscount, IDiscountRule
     {
         private readonly string VALID_COUPON_CODE = "DIS10";
         private readonly decimal MINIMUM_AMOUNT = 2000;
