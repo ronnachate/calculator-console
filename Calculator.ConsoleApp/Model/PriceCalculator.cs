@@ -9,7 +9,6 @@ namespace Calculator.ConsoleApp.Model
 {
     public class PriceCalculator
     {
-        string AssignedName { get; set;}
         private List<IDiscountRule> _rules = new List<IDiscountRule>();
         private string _baseNameSpace;
         public PriceCalculator(Discount discountConfig)
