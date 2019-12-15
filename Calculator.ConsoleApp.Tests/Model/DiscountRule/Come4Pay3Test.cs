@@ -25,13 +25,5 @@ namespace Calculator.ConsoleAppTest.Model.DiscountRule
             var netPrice = _rule.GetNetPrice(CUSTOMER_COUNT, VALID_COUPON_CODE, 1000);
             Assert.Equal(750, netPrice);
         }
-        [Fact]
-        public void GetNetPriceReturnSameForInvalidInputAmountTest()
-        {
-            var netPrice = _rule.GetNetPrice(1, VALID_COUPON_CODE, 1000);
-            Assert.Equal(1000, netPrice);
-            netPrice = _rule.GetNetPrice(CUSTOMER_COUNT, "Test", 1000);
-            Assert.Equal(1000, netPrice);
-        }
     }
 }
