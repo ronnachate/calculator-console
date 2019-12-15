@@ -21,21 +21,21 @@ namespace Calculator.ConsoleAppTest.Model
             var bestRule = _calculator.GetBestRule(1, "DIS10", 1000 );
             Assert.Equal("Discount 10%", bestRule.Name);
             Assert.Equal(900, bestRule.Price);
-            bestRule = _calculator.GetBestRule(2, "Test", 2000 );
+            bestRule = _calculator.GetBestRule(2, "Test", 1000 );
             Assert.Equal("Discount 10%", bestRule.Name);
             Assert.Equal(1800, bestRule.Price);
         }
         [Fact]
         public void MatchDiscount30Test()
         {
-            var bestRule = _calculator.GetBestRule(2, "STARCARD", 2000 );
+            var bestRule = _calculator.GetBestRule(2, "STARCARD", 1000 );
             Assert.Equal("Discount 30% for 2 person", bestRule.Name);
             Assert.Equal(1400, bestRule.Price);
         }
         [Fact]
         public void MatchCome4Pay3Test()
         {
-            var bestRule = _calculator.GetBestRule(4, "STARCARD", 1000 );
+            var bestRule = _calculator.GetBestRule(4, "STARCARD", 250 );
             Assert.Equal("Come 4 Pay 3", bestRule.Name);
             Assert.Equal(750, bestRule.Price);
         }

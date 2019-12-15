@@ -17,8 +17,9 @@ namespace Calculator.ConsoleApp.Model
             _baseNameSpace = discountConfig.BaseNameSpace;
             InitDiscountRule(discountConfig.Rules);
         }
-        public RuleResult GetBestRule(int customerCount, string couponCode, decimal amount)
+        public RuleResult GetBestRule(int customerCount, string couponCode, decimal pricePerPerson)
         {
+            decimal amount = customerCount * pricePerPerson;
             RuleResult bestRule = new RuleResult
             {
                 Price = amount
