@@ -29,8 +29,22 @@ namespace Calculator.ConsoleAppTest.Model
         public void MatchDiscount30Test()
         {
             var bestRule = _calculator.GetBestRule(2, "STARCARD", 2000 );
-            Assert.Equal("Discount 30%", bestRule.Name);
+            Assert.Equal("Discount 30% for 2 person", bestRule.Name);
             Assert.Equal(1400, bestRule.Price);
+        }
+        [Fact]
+        public void MatchCome4Pay3Test()
+        {
+            var bestRule = _calculator.GetBestRule(4, "STARCARD", 1000 );
+            Assert.Equal("Come 4 Pay 3", bestRule.Name);
+            Assert.Equal(750, bestRule.Price);
+        }
+                [Fact]
+        public void MatchDiscount25Test()
+        {
+            var bestRule = _calculator.GetBestRule(1, "STARCARD", 3000 );
+            Assert.Equal("Discount 25%", bestRule.Name);
+            Assert.Equal(2250, bestRule.Price);
         }
         [Fact]
         public void NotMatchAnyRuleTest()
@@ -48,7 +62,9 @@ namespace Calculator.ConsoleAppTest.Model
                 Rules =  new List<Rule>
                 {
                     new Rule { Name = "Discount 10%", ClassName = "Discount10"},
-                    new Rule { Name = "Discount 30%", ClassName = "Discount30For2"}
+                    new Rule { Name = "Discount 30% for 2 person", ClassName = "Discount30For2"},
+                    new Rule { Name = "Come 4 Pay 3", ClassName = "Come4Pay3"},
+                    new Rule { Name = "Discount 25%", ClassName = "Discount25"}
                 }
             };
         }
