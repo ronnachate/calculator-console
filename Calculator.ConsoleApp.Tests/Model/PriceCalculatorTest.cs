@@ -54,6 +54,19 @@ namespace Calculator.ConsoleAppTest.Model
             Assert.Equal(1900, bestRule.Price);
         }
 
+        [Fact]
+        public void ValidWithAssetmentSampleTest()
+        {
+            var bestRule = _calculator.GetBestRule(1, "DIS10", 500 );
+            Assert.Equal("Discount 10%", bestRule.Name);
+            Assert.Equal(450, bestRule.Price);
+            bestRule = _calculator.GetBestRule(1, "STARCARD", 2000 );
+            Assert.Equal("Discount 10%", bestRule.Name);
+            Assert.Equal(1800, bestRule.Price);
+            bestRule = _calculator.GetBestRule(2, "DIS10", 1500 );
+            Assert.Equal("Discount 25%", bestRule.Name);
+            Assert.Equal(2250, bestRule.Price);
+        }
         private Discount GetTestDiscountConfig()
         {
             return new Discount
