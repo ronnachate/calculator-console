@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Xunit;
 using Calculator.ConsoleApp.Model;
 using Calculator.ConsoleApp.Model.Config;
-using Calculator.ConsoleApp.Model.DiscountRule;
 
 namespace Calculator.ConsoleAppTest.Model
 {
@@ -13,7 +11,8 @@ namespace Calculator.ConsoleAppTest.Model
         public PriceCalculatorTest()
         {
             var discountConfig = GetTestDiscountConfig();
-            _calculator = new PriceCalculator(discountConfig);
+            var rules = DiscountHelper.GetDiscountRuleFromConfig(discountConfig);
+            _calculator = new PriceCalculator(rules);
         }
         [Fact]
         public void MatchDiscount10Test()

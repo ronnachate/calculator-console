@@ -17,7 +17,9 @@ namespace Calculator.ConsoleApp
             IConfiguration config = builder.Build();
             var discountConfig = new Discount();
             config.GetSection("Discount").Bind(discountConfig);
-            var calculator = new PriceCalculator(discountConfig);
+            var discountRules = DiscountHelper.GetDiscountRuleFromConfig(discountConfig);
+            var calculator = new PriceCalculator(discountRules);
+
             //due to  important part is Price calculator model, so skip input args and validation here
             //assume all data is correct and invalid data will be reject before this
             Console.WriteLine("-- Start Calculate input");

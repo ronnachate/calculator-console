@@ -1,9 +1,5 @@
-using System;
-using System.Linq;
 using System.Collections.Generic;
 using Calculator.ConsoleApp.Model.DiscountRule;
-using Calculator.ConsoleApp.Model.Config;
-
 
 namespace Calculator.ConsoleApp.Model
 {
@@ -11,10 +7,9 @@ namespace Calculator.ConsoleApp.Model
     {
         private List<IDiscountRule> _rules = new List<IDiscountRule>();
         private string _baseNameSpace;
-        public PriceCalculator(Discount discountConfig)
+        public PriceCalculator(List<IDiscountRule> rules)
         {
-            _baseNameSpace = discountConfig.BaseNameSpace;
-            InitDiscountRule(discountConfig.Rules);
+            _rules = rules;
         }
         public RuleResult GetBestRule(int customerCount, string couponCode, decimal pricePerPerson)
         {
@@ -40,17 +35,6 @@ namespace Calculator.ConsoleApp.Model
                 }
             }
             return bestRule;
-        }
-        private void InitDiscountRule(List<Rule> rulesConfig)
-        {
-            foreach( var ruleConfig in rulesConfig)
-            {
-                var ruleClass = $"{_baseNameSpace}.{ruleConfig.ClassName}";
-                Type type = Type.GetType(ruleClass);
-                var rule = (IDiscountRule)Activator.CreateInstance(type);
-                rule.AssignedName = ruleConfig.Name;
-                _rules.Add(rule);
-            } 
         }
     }
 }

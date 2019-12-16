@@ -1,6 +1,6 @@
 ﻿namespace Calculator.ConsoleApp.Model.DiscountRule
 {
-    interface IDiscountRule
+    public interface IDiscountRule
     {
         string AssignedName { get; set;}
         decimal GetNetPrice(int customerCount, string couponCode, decimal amount);
